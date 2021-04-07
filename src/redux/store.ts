@@ -7,10 +7,11 @@ const rootReducer = combineReducers({
   countReducer,
 });
 
-export type RootState = ReturnType<typeof rootReducer>;
-
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(rootSaga);
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type ReduxDispatch = typeof store.dispatch;

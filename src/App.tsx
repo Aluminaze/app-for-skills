@@ -1,12 +1,13 @@
 import React from "react";
 import useReduxSelector from "hooks/useReduxSelector";
 import "./App.css";
-import { useDispatch } from "react-redux";
 import { asyncIncrementAC } from "redux/reducers/actions";
+import useReduxDispatch from "hooks/useReduxDispatch";
 
 function App() {
   const count = useReduxSelector((state) => state.countReducer.count);
-  const dispatch = useDispatch();
+  const dispatch = useReduxDispatch();
+
   return (
     <div className="App">
       <span>Count: {count}</span>

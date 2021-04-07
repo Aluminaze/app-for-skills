@@ -21,4 +21,7 @@ export interface AsyncIncrementAction {
   type: CountActionTypes.ASYNC_INCREMENT;
 }
 
-export type CountActions = IncrementCountAction | DecrementCountAction;
+export type CountActions =
+  | IncrementCountAction
+  | DecrementCountAction
+  | AsyncIncrementAction;
