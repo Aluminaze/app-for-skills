@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import useReduxSelector from "hooks/useReduxSelector";
+import "./App.css";
+import { asyncIncrementAC } from "redux/reducers/actions";
+import useReduxDispatch from "hooks/useReduxDispatch";
 
 function App() {
+  const count = useReduxSelector((state) => state.countReducer.count);
+  const dispatch = useReduxDispatch();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <span>Count: {count}</span>
+      <button onClick={() => dispatch(asyncIncrementAC())}>
+        ASYNC INCREMENT
+      </button>
     </div>
   );
 }
